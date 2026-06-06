@@ -1,0 +1,78 @@
+/* ==============================
+   TOAST — Light Luxury
+   ============================== */
+
+.toast-container {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--text);
+  color: #FFF;
+  padding: 16px 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-xl);
+  z-index: 9999;
+  transform: translateY(150%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--t-normal) var(--ease-spring);
+}
+
+.toast-container.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  background: var(--accent-emerald);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+}
+
+.toast-container p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.toast-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #FFF;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+
+.toast-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+  .toast-container {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    justify-content: space-between;
+  }
+}

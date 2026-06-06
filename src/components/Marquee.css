@@ -1,0 +1,56 @@
+/* ==============================
+   MARQUEE — Light Luxury
+   ============================== */
+
+.marquee-section {
+  background: var(--gradient-brand);
+  padding: 16px 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-section:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-shrink: 0;
+  min-width: 100%;
+  padding: 0 20px;
+}
+
+.marquee-group .text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.marquee-group .bullet {
+  color: var(--accent-gold);
+  font-size: 1.2rem;
+  margin: 0 32px;
+}

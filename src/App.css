@@ -1,0 +1,221 @@
+/* ============================================================
+   SHOPWAVE — GLOBAL DESIGN SYSTEM (LIGHT LUXURY)
+   Warm Cream · Electric Indigo · Vivid Coral · Gold Accent
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --bg: #F8F5F0;
+  --bg-alt: #FFFFFF;
+  --bg-section-2: #F0EDFF;
+  --bg-section-3: #FFF8F0;
+  --surface: #FFFFFF;
+  --surface-hover: #F5F2FF;
+
+  /* Brand Colors */
+  --brand: #5C35F5;
+  --brand-dark: #3B1FD4;
+  --brand-light: #7C5CF7;
+  --brand-2: #FF4560;
+  --brand-2-dark: #E02040;
+  --brand-2-light: #FF7080;
+  --accent-gold: #F5C518;
+  --accent-teal: #06B6D4;
+  --accent-emerald: #10B981;
+  --accent-orange: #F97316;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #5C35F5 0%, #9747FF 100%);
+  --gradient-coral: linear-gradient(135deg, #FF4560 0%, #FF8C60 100%);
+  --gradient-gold: linear-gradient(135deg, #F5C518 0%, #F97316 100%);
+  --gradient-teal: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
+  --gradient-hero: linear-gradient(135deg, #5C35F5 0%, #C026D3 50%, #FF4560 100%);
+  --gradient-text: linear-gradient(135deg, #5C35F5 0%, #9747FF 60%, #FF4560 100%);
+  --gradient-card-1: linear-gradient(135deg, #F0EDFF 0%, #E8F4FF 100%);
+  --gradient-card-2: linear-gradient(135deg, #FFF0F2 0%, #FFE8E0 100%);
+  --gradient-card-3: linear-gradient(135deg, #FFFBEA 0%, #FFF0D0 100%);
+  --gradient-card-4: linear-gradient(135deg, #E8FFF5 0%, #D0F5E8 100%);
+
+  /* Text */
+  --text: #12101F;
+  --text-2: #4D4869;
+  --text-3: #9895B5;
+  --text-inverse: #FFFFFF;
+  --text-brand: #5C35F5;
+
+  /* Borders */
+  --border: rgba(18, 16, 31, 0.08);
+  --border-brand: rgba(92, 53, 245, 0.25);
+  --border-hover: rgba(92, 53, 245, 0.4);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(18, 16, 31, 0.08);
+  --shadow-sm: 0 4px 12px rgba(18, 16, 31, 0.08);
+  --shadow-md: 0 8px 24px rgba(18, 16, 31, 0.10);
+  --shadow-lg: 0 20px 48px rgba(18, 16, 31, 0.12);
+  --shadow-xl: 0 32px 64px rgba(18, 16, 31, 0.15);
+  --shadow-brand: 0 8px 32px rgba(92, 53, 245, 0.28);
+  --shadow-coral: 0 8px 32px rgba(255, 69, 96, 0.28);
+  --shadow-gold: 0 8px 24px rgba(245, 197, 24, 0.35);
+  --shadow-card-hover: 0 20px 60px rgba(92, 53, 245, 0.18);
+
+  /* Typography */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Layout */
+  --nav-h: 72px;
+  --container-max: 1340px;
+  --container-pad: clamp(20px, 5vw, 64px);
+  --section-pad: clamp(64px, 9vw, 128px);
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-2xl: 48px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 0.15s;
+  --t-normal: 0.28s;
+  --t-slow: 0.5s;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
+input, select, textarea { font-family: var(--font-body); outline: none; }
+ul, ol { list-style: none; }
+
+/* ---- App Wrapper ---- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, rgba(255, 250, 240, 1) 0%, rgba(240, 237, 255, 1) 40%, rgba(255, 235, 240, 1) 100%);
+}
+
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 15% 20%, rgba(92, 53, 245, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 85% 80%, rgba(255, 69, 96, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-brand);
+  border-radius: var(--radius-full);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: rgba(92, 53, 245, 0.15);
+  color: var(--brand-dark);
+}
+
+/* ---- Utility: Container ---- */
+.sw-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ---- Gradient Text ---- */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Global Keyframes ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(5deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes pulse-brand {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(92, 53, 245, 0.35); }
+  50%       { box-shadow: 0 0 0 12px rgba(92, 53, 245, 0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes blob-move {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1) rotate(0deg); }
+  33%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: scale(1.08) rotate(5deg); }
+  66%  { border-radius: 50% 60% 30% 60% / 30% 70% 60% 40%; transform: scale(0.95) rotate(-3deg); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

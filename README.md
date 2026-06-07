@@ -85,6 +85,9 @@ npm start
 ![Products](src/images/products3..png)
 ![Products](src/images/products4.png)
 
+### Cart Section
+![Products](src/images/cart.png)
+
 ### Reviews Section
 
 ![Reviews](src/images/reviews.png)

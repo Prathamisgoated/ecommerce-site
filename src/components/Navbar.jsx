@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-
 const Navbar = ({ cartCount, onCartClick }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,34 +13,33 @@ const Navbar = ({ cartCount, onCartClick }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", isNew: false },
-    { name: "Shop", isNew: false },
-    { name: "Collections", isNew: true },
-    { name: "About", isNew: false },
-    { name: "Contact", isNew: false },
-  ];
+const navLinks = [
+  { name: "Home", path: "/", isNew: false },
+  { name: "Products", path: "/products", isNew: false },
+  { name: "Reviews", path: "/reviews", isNew: true },
+  { name: "About", path: "/about", isNew: false },
+];
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-inner">
         {/* Logo */}
-        <a href="#" className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <div className="logo-mark">W</div>
           <span className="logo-text">
             Shop<span>Wave</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
           {navLinks.map((link) => (
-            <li key={link.name}>
-              <a href="#" className={link.name === "Home" ? "active" : ""}>
-                {link.name}
-                {link.isNew && <span className="nav-badge">NEW</span>}
-              </a>
-            </li>
+          <li key={link.name}>
+  <Link to={link.path}>
+    {link.name}
+    {link.isNew && <span className="nav-badge">NEW</span>}
+  </Link>
+</li>
           ))}
         </ul>
 

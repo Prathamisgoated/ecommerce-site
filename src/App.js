@@ -10,6 +10,11 @@ import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import Toast from "./components/Toast";
 import products from "./components/products";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import ProductsPage from "./pages/ProductsPage";
+import ReviewsPage from "./pages/ReviewsPage";
+import About from "./pages/About";
 import "./App.css";
 
 function App() {
@@ -61,31 +66,53 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Navbar
-        cartCount={cartCount}
-        onCartClick={() => setCartOpen(true)}
+ <BrowserRouter>
+  <div className="app">
+    <Navbar
+      cartCount={cartCount}
+      onCartClick={() => setCartOpen(true)}
+    />
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+
+      <Route
+        path="/products"
+        element={
+          <ProductsPage
+            onAddToCart={handleAddToCart}
+          />
+        }
       />
-      <Hero onShopNow={scrollToShop} />
-      <Marquee />
-      <Features />
-      <CategoryShowcase />
-      <ProductGrid products={products} onAddToCart={handleAddToCart} />
-      <Reviews />
-      <Footer />
-      <Cart
-        isOpen={cartOpen}
-        onClose={() => setCartOpen(false)}
-        cartItems={cartItems}
-        onUpdateQty={handleUpdateQty}
-        onRemove={handleRemove}
+
+      <Route
+        path="/reviews"
+        element={<ReviewsPage />}
       />
-      <Toast
-        message={toast.message}
-        isVisible={toast.visible}
-        onHide={hideToast}
+
+      <Route
+        path="/about"
+        element={<About />}
       />
-    </div>
+    </Routes>
+
+    <Footer />
+
+    <Cart
+      isOpen={cartOpen}
+      onClose={() => setCartOpen(false)}
+      cartItems={cartItems}
+      onUpdateQty={handleUpdateQty}
+      onRemove={handleRemove}
+    />
+
+    <Toast
+      message={toast.message}
+      isVisible={toast.visible}
+      onHide={hideToast}
+    />
+  </div>
+</BrowserRouter>
   );
 }
 

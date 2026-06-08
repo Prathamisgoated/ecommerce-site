@@ -110,6 +110,10 @@ src/
 ![Products Page](src/images/products3.png)
 ![Products Page](src/images/products4.png)
 
+### Cart section
+
+![Cart Section](src/images/cart.png)
+
 ### Reviews Page
 
 ![Reviews Page](src/images/reviews.png)

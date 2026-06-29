@@ -1,32 +1,72 @@
-# 🛍️ ShopWave – Modern React E-Commerce Website
+# 🛍️ ShopWave
 
-ShopWave is a modern and responsive e-commerce website built using React.js. The project showcases a premium shopping experience with stylish UI components, product listings, customer reviews, shopping cart functionality, and React Router navigation.
+ShopWave is a modern full-stack ecommerce web application built with React and Supabase. It provides a complete online shopping experience with user authentication, product browsing, wishlist management, shopping cart, secure checkout, order history, and inventory management.
 
 ---
 
 ## 🚀 Features
 
-- Modern and Responsive UI
-- React Component-Based Architecture
-- React Router Navigation
-- Premium Hero Section
-- Product Showcase
-- Category Section
-- Customer Reviews
-- Shopping Cart
-- Toast Notifications
-- About Us Page
-- Mobile-Friendly Design
+### 👤 User Authentication
+- Sign Up & Login
+- Secure authentication using Supabase Auth
+- Protected checkout
+
+### 🛒 Shopping
+- Browse products
+- Product categories
+- Product search
+- Product details page
+- Add to Cart
+- Quantity management
+
+### ❤️ Wishlist
+- Add products to wishlist
+- Remove products from wishlist
+- Persistent wishlist using Supabase
+
+### 📦 Orders
+- Secure checkout
+- Order Success page
+- Order History
+- Delivery information
+- Stores orders in Supabase
+
+### 📊 Inventory Management
+- Live stock display
+- Automatic stock reduction after successful purchase
+- Out of Stock handling
+
+### ⭐ Product Information
+- Product ratings
+- Reviews count
+- Brand information
+- Discount calculation
+- Product badges
+
+### 🎨 UI
+- Responsive Design
+- Modern animations
+- Toast notifications
+- Clean shopping experience
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
+### Frontend
 - React.js
-- JavaScript (ES6+)
-- HTML5
-- CSS3
 - React Router DOM
+- CSS3
+
+### Backend
+- Supabase
+- PostgreSQL
+- Supabase Authentication
+
+### Deployment
+- Vercel
+
+---
 
 ---
 

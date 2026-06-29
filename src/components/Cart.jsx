@@ -1,12 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = ({ isOpen, onClose, cartItems, onUpdateQty, onRemove }) => {
+  const navigate = useNavigate();
+
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
   const shipping = subtotal > 999 ? 0 : 99;
   const total = subtotal + shipping;
 
   const progress = Math.min((subtotal / 999) * 100, 100);
+
+  const handleCheckout = () => {
+    onClose();
+    navigate("/checkout");
+  };
 
   return (
     <>
@@ -22,7 +30,8 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateQty, onRemove }) => {
           </div>
           <button className="cart-close" onClick={onClose}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
             </svg>
           </button>
         </div>
@@ -30,8 +39,8 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateQty, onRemove }) => {
         {cartItems.length > 0 && (
           <div className="shipping-progress-wrap">
             <p className="shipping-msg">
-              {shipping === 0 
-                ? "🎉 You've unlocked free shipping!" 
+              {shipping === 0
+                ? "🎉 You've unlocked free shipping!"
                 : `Add ₹${(999 - subtotal).toLocaleString()} more for free shipping`}
             </p>
             <div className="progress-bar-bg">
@@ -91,9 +100,16 @@ const Cart = ({ isOpen, onClose, cartItems, onUpdateQty, onRemove }) => {
               <span>Total</span>
               <span>₹{total.toLocaleString()}</span>
             </div>
-            <button className="btn-primary-global checkout-btn">
-              Proceed to Checkout →
-            </button>
+
+            <button
+  className="btn-primary-global checkout-btn"
+  onClick={() => {
+    onClose();
+    navigate("/checkout");
+  }}
+>
+  Proceed to Checkout →
+</button>
           </div>
         )}
       </aside>

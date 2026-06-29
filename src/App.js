@@ -9,12 +9,18 @@ import Reviews from "./components/Reviews";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import Toast from "./components/Toast";
-import products from "./components/products";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import ProductsPage from "./pages/ProductsPage";
 import ReviewsPage from "./pages/ReviewsPage";
 import About from "./pages/About";
+import Checkout from "./pages/checkout"
+import Auth from "./pages/Auth";
+import OrderSuccess from "./pages/OrderSuccess";
+import OrderHistory from "./pages/OrderHistory";
+import Wishlist from "./pages/wishlist";
+import ProductDetails from "./pages/ProductDetails";
 import "./App.css";
 
 function App() {
@@ -64,7 +70,9 @@ function App() {
     const el = document.getElementById("shop");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
+const clearCart = () => {
+  setCartItems([]);
+};
   return (
  <BrowserRouter>
   <div className="app">
@@ -74,27 +82,50 @@ function App() {
     />
 
     <Routes>
-      <Route path="/" element={<Home />} />
+ <Route
+  path="/"
+  element={<Home onAddToCart={handleAddToCart} />}
+/>
 
-      <Route
-        path="/products"
-        element={
-          <ProductsPage
-            onAddToCart={handleAddToCart}
-          />
-        }
-      />
+  <Route
+    path="/products"
+    element={<ProductsPage onAddToCart={handleAddToCart} />}
+  />
+  <Route
+  path="/product/:id"
+  element={
+    <ProductDetails
+      onAddToCart={handleAddToCart}
+    />
+  }
+/>
 
-      <Route
-        path="/reviews"
-        element={<ReviewsPage />}
-      />
+  <Route path="/reviews" element={<ReviewsPage />} />
+  <Route path="/about" element={<About />} />
+   <Route path="/auth" element={<Auth />} />
 
-      <Route
-        path="/about"
-        element={<About />}
-      />
-    </Routes>
+<Route
+  path="/checkout"
+  element={
+    <Checkout
+      cartItems={cartItems}
+      clearCart={clearCart}
+    />
+  }
+/>
+<Route
+  path="/order-success"
+  element={<OrderSuccess />}
+/>
+<Route
+  path="/orders"
+  element={<OrderHistory />}
+/>
+<Route
+  path="/wishlist"
+  element={<Wishlist />}
+/>
+</Routes>
 
     <Footer />
 

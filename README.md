@@ -209,6 +209,7 @@ This project helped demonstrate:
 - React Router DOM
 - Responsive Web Design
 - Modern UI/UX Principles
+- Backend integration
 
 ---
 
@@ -218,11 +219,3 @@ This project helped demonstrate:
 
 ---
 
-## ⭐ Future Improvements
-
-- Product Search Functionality
-- User Authentication
-- Wishlist System
-- Payment Gateway Integration
-- Backend Integration
-- Order Tracking
